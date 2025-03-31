@@ -1,0 +1,46 @@
+{
+  "name": "@xiaou66/picture-command",
+  "version": "1.0.0",
+  "description": "用于命令行上传图片到uTools图床Plus插件的工具",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "bin": {
+    "u-upload": "bin/u-upload.cjs"
+  },
+  "scripts": {
+    "test": "tsx src/u-upload.ts --help",
+    "dev": "tsx src/u-upload.ts -u P3gHGlKGmmh2ck0O6ZIFG /Users/xiaou/Downloads/logo.ico",
+    "dev:help": "tsx src/u-upload.ts --help",
+    "dev:version": "tsx src/u-upload.ts --version",
+    "build": "vite build",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.3",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.3",
+    "typescript": "^5.0.0",
+    "vite": "^6.0.9",
+    "vite-plugin-dts": "^4.5.0"
+  },
+  "author": "xiaou",
+  "license": "ISC",
+  "exports": {
+  },
+  "dependencies": {
+    "@xiaou66/interconnect-client": "^0.0.14",
+    "commander": "^13.1.0"
+  },
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "keywords": [
+    "utools",
+    "picture-bed",
+    "uploader",
+    "command-line"
+  ]
+}
