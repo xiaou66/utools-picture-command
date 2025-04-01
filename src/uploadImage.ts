@@ -61,11 +61,18 @@ export async function uploadImage(imagePath: string, options: UploadOptions): Pr
       url: result?.url || '',
       success: !!result?.url
     };
-  } catch (error) {
+  } catch (error: any) {
+    if (error.message.includes('ECONNREFUSED')) {
+      return {
+        url: '',
+        success: false,
+        error: 'uTools 图床Plus 服务未启动，请先在 uTools 中打开 图床Plus 插件'
+      };
+    }
     return {
       url: '',
       success: false,
-      error: error instanceof Error ? error.message : String(error)
+      error: error.message || '未知错误'
     };
   }
 }
