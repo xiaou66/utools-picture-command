@@ -1,7 +1,6 @@
 import net from 'net';
 import InterconnectClient from '@xiaou66/interconnect-client';
-import * as process from "process";
-
+import { type } from "node:os";
 // 解构 ServiceClient
 const { ServiceClient } = InterconnectClient;
 
@@ -46,11 +45,10 @@ export interface UploadOptions {
  */
 export async function uploadImage(imagePath: string, options: UploadOptions): Promise<UploadResult> {
   const { uploadId, timeout = 15000 } = options;
-
   try {
     const serviceClient = new ServiceClient(net, 'picture-bed-plus',
       'command',
-      process.platform === 'win32');
+      type() === 'Windows_NT');
 
     const result = await serviceClient.callServiceMethod<{url: string}>('service.upload.file.sync', {
       filePath: imagePath,
