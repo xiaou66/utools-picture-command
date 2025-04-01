@@ -7,7 +7,7 @@
   "types": "dist/index.d.ts",
   "type": "module",
   "bin": {
-    "u-upload": "bin/u-upload.cjs"
+    "u-upload": "bin/u-upload.js"
   },
   "scripts": {
     "test": "tsx src/u-upload.ts --help",
@@ -28,6 +28,16 @@
   "author": "xiaou",
   "license": "ISC",
   "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js"
+    },
+    "./cli": {
+      "types": "./dist/u-upload.d.ts",
+      "import": "./dist/u-upload.es.js",
+      "require": "./dist/u-upload.cjs.js"
+    }
   },
   "dependencies": {
     "@xiaou66/interconnect-client": "^0.0.14",
