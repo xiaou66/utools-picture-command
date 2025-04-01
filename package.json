@@ -1,6 +1,6 @@
 {
   "name": "@xiaou66/picture-command",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "用于命令行上传图片到uTools图床Plus插件的工具",
   "main": "dist/u-upload.cjs.js",
   "types": "dist/u-upload.d.ts",

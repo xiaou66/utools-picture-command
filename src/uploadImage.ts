@@ -1,7 +1,8 @@
 import net from 'net';
 import InterconnectClient from '@xiaou66/interconnect-client';
+import * as process from "process";
 
-// 解构 ServiceClient 
+// 解构 ServiceClient
 const { ServiceClient } = InterconnectClient;
 
 /**
@@ -38,22 +39,24 @@ export interface UploadOptions {
 
 /**
  * 上传图片到uTools图床Plus
- * 
+ *
  * @param imagePath 图片路径
  * @param options 上传选项
  * @returns 上传结果
  */
 export async function uploadImage(imagePath: string, options: UploadOptions): Promise<UploadResult> {
   const { uploadId, timeout = 15000 } = options;
-  
+
   try {
-    const serviceClient = new ServiceClient(net, 'picture-bed-plus', 'command', false);
-    
+    const serviceClient = new ServiceClient(net, 'picture-bed-plus',
+      'command',
+      process.platform === 'win32');
+
     const result = await serviceClient.callServiceMethod<{url: string}>('service.upload.file.sync', {
       filePath: imagePath,
       uploadWay: uploadId,
     }, { timeout });
-    
+
     return {
       url: result?.url || '',
       success: !!result?.url
@@ -69,18 +72,18 @@ export async function uploadImage(imagePath: string, options: UploadOptions): Pr
 
 /**
  * 批量上传图片到uTools图床Plus
- * 
+ *
  * @param imagePaths 图片路径数组
  * @param options 上传选项
  * @returns 上传结果数组
  */
 export async function uploadImages(imagePaths: string[], options: UploadOptions): Promise<UploadResult[]> {
   const results: UploadResult[] = [];
-  
+
   for (const imagePath of imagePaths) {
     const result = await uploadImage(imagePath, options);
     results.push(result);
   }
-  
+
   return results;
-} 
+}
