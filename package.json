@@ -1,6 +1,6 @@
 {
   "name": "@xiaou66/picture-command",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "用于命令行上传图片到uTools图床Plus插件的工具",
   "main": "dist/u-upload.cjs.js",
   "types": "dist/u-upload.d.ts",
@@ -10,7 +10,8 @@
   },
   "scripts": {
     "test": "tsx src/u-upload.ts --help",
-    "dev": "tsx src/u-upload.ts C:\\\\Users\\\\babei\\\\AppData\\\\Local\\\\Temp\\\\Typora\\\\typora-icon2.png",
+    "test:mac": "tsx src/u-upload.ts /Applications/Typora.app/Contents/Resources/TypeMark/assets/icon/icon_512x512.png",
+    "test:win": "tsx src/u-upload.ts C:\\\\Users\\\\babei\\\\AppData\\\\Local\\\\Temp\\\\Typora\\\\typora-icon2.png",
     "dev:help": "tsx src/u-upload.ts --help",
     "dev:version": "tsx src/u-upload.ts --version",
     "build": "vite build",
