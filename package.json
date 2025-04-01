@@ -2,20 +2,19 @@
   "name": "@xiaou66/picture-command",
   "version": "1.0.0",
   "description": "用于命令行上传图片到uTools图床Plus插件的工具",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
-  "type": "module",
+  "main": "dist/u-upload.cjs.js",
+  "types": "dist/u-upload.d.ts",
+  "type": "commonjs",
   "bin": {
-    "u-upload": "bin/u-upload.js"
+    "u-upload": "bin/u-upload.cjs"
   },
   "scripts": {
     "test": "tsx src/u-upload.ts --help",
-    "dev": "tsx src/u-upload.ts -u P3gHGlKGmmh2ck0O6ZIFG /Users/xiaou/Downloads/logo.ico",
     "dev:help": "tsx src/u-upload.ts --help",
     "dev:version": "tsx src/u-upload.ts --version",
     "build": "vite build",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "publish": "npm publish"
   },
   "devDependencies": {
     "@types/node": "^18.15.3",
@@ -29,13 +28,7 @@
   "license": "ISC",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.cjs.js"
-    },
-    "./cli": {
       "types": "./dist/u-upload.d.ts",
-      "import": "./dist/u-upload.es.js",
       "require": "./dist/u-upload.cjs.js"
     }
   },
@@ -44,7 +37,6 @@
     "commander": "^13.1.0"
   },
   "files": [
-    "dist",
     "bin"
   ],
   "keywords": [
@@ -52,5 +44,9 @@
     "picture-bed",
     "uploader",
     "command-line"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:xiaou66/utools-picture-command.git"
+  }
 }
