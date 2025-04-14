@@ -45,10 +45,10 @@ program
           console.log(result.url);
           successCount++;
         } else {
-          if (result.error?.includes('服务未启动')) {
+          if (result.error && result.error?.includes('服务未启动')) {
             openURL('utools://图床 Plus/图床');
           }
-          console.log(result.error)
+          console.log(result)
         }
       });
       process.exit(successCount > 0 ? 0 : 1);
