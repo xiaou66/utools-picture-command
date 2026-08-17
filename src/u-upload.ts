@@ -46,7 +46,7 @@ program
           successCount++;
         } else {
           if (result.error && result.error?.includes('服务未启动')) {
-            openURL('utools://图床 Plus/图床');
+            openURL('utools://兔灵图床 Plus/图床');
           }
           console.log(result)
         }

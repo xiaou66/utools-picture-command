@@ -39,7 +39,7 @@ export default defineConfig({
       }
     },
     // 添加target支持Node.js环境
-    target: 'node16'
+    target: 'node24'
   },
   plugins: [
     dts({
